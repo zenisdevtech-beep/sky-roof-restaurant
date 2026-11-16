@@ -43,7 +43,9 @@ export default function MenuPage({ cart, onAddToCart, onUpdateQuantity, onOpenCa
         onAddToCart={onAddToCart}
         onUpdateQuantity={onUpdateQuantity}
         onOpenCart={onOpenCart}
+        showHeader={false}
       />
     </div>
   );
 }
+

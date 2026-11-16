@@ -283,3 +283,4 @@ export default function HomePage({ onOpenReserve, cart, onAddToCart, onUpdateQua
     </div>
   );
 }
+

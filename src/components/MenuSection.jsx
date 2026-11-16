@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/restaurantData';
 
-export default function MenuSection({ cart, onAddToCart, onUpdateQuantity, onOpenCart }) {
+export default function MenuSection({ cart, onAddToCart, onUpdateQuantity, onOpenCart, showHeader = true }) {
   const [activeCategory, setActiveCategory] = useState('highlights');
   const [searchQuery, setSearchQuery] = useState('');
   const [filterJainOnly, setFilterJainOnly] = useState(false);
@@ -54,18 +54,20 @@ export default function MenuSection({ cart, onAddToCart, onUpdateQuantity, onOpe
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Utensils className="w-3.5 h-3.5" />
-            <span>Curated Culinary Experience</span>
+        {showHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3">
+              <Utensils className="w-3.5 h-3.5" />
+              <span>Curated Culinary Experience</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Rooftop Menu & Specialties
+            </h2>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Delicately spiced charcoal kebabs, rich North Indian gravies, Indo-Chinese platters, and refreshing cafe brews prepared fresh for you.
+            </p>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
-            Rooftop Menu & Specialties
-          </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Delicately spiced charcoal kebabs, rich North Indian gravies, Indo-Chinese platters, and refreshing cafe brews prepared fresh for you.
-          </p>
-        </div>
+        )}
 
         {/* Search & Quick Filter Controls */}
         <div className="max-w-4xl mx-auto mb-8 space-y-4">

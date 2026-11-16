@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { CELEBRATION_PACKAGES } from '../data/restaurantData';
 
-export default function CelebrationPackages({ onSelectPackage }) {
+export default function CelebrationPackages({ onSelectPackage, showHeader = true }) {
   const getPackageIcon = (id) => {
     switch (id) {
       case 'candle-light':
@@ -24,18 +24,20 @@ export default function CelebrationPackages({ onSelectPackage }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Heart className="w-3.5 h-3.5 fill-rose-400 text-rose-400" />
-            <span>Celebrations Under The Open Sky</span>
+        {showHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-semibold uppercase tracking-wider mb-3">
+              <Heart className="w-3.5 h-3.5 fill-rose-400 text-rose-400" />
+              <span>Celebrations Under The Open Sky</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
+              Curated Celebration Packages
+            </h2>
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Elevate your special milestones with custom rooftop decorations, candlelight arrangements, fairy light canopies, and lavish North Indian dining spreads.
+            </p>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
-            Curated Celebration Packages
-          </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Elevate your special milestones with custom rooftop decorations, candlelight arrangements, fairy light canopies, and lavish North Indian dining spreads.
-          </p>
-        </div>
+        )}
 
         {/* Packages Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">

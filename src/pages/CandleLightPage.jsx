@@ -122,9 +122,11 @@ export default function CandleLightPage({ onOpenReserve }) {
         {/* Packages Component */}
         <CelebrationPackages
           onSelectPackage={(pkg) => onOpenReserve({ occasion: pkg.title, title: pkg.title })}
+          showHeader={false}
         />
 
       </div>
     </div>
   );
 }
+
