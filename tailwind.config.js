@@ -8,25 +8,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        amber: {
-          450: '#F59E0B',
-          warm: '#E07A10'
+        gold: {
+          300: '#F3E5AB',
+          400: '#E5C07B',
+          500: '#D4AF37',
+          600: '#B89025',
+          700: '#997316'
         },
-        navy: {
-          900: '#0B1120',
-          800: '#111827',
-          700: '#1F2937'
+        stone: {
+          850: '#151413',
+          900: '#1C1917',
+          950: '#0E0D0C',
+        },
+        terracotta: {
+          500: '#E06A3B',
+          600: '#C85324'
         }
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      }
     },
   },
   plugins: [],
 }
-

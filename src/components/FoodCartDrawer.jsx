@@ -53,17 +53,17 @@ Please confirm receipt of order!`;
   return (
     <div className="fixed inset-0 z-50 overflow-hidden bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[#0B101E] border-l border-white/10 shadow-2xl flex flex-col justify-between">
+        <div className="w-screen max-w-md bg-[#12100E] border-l border-white/10 shadow-2xl flex flex-col justify-between">
 
           {/* Cart Header */}
-          <div className="p-5 border-b border-white/10 bg-slate-900/90 flex items-center justify-between">
+          <div className="p-5 border-b border-white/10 bg-stone-900/95 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+              <div className="w-9 h-9 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center text-gold-400">
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-serif text-lg font-bold text-white">Your Food Basket</h3>
-                <p className="text-[11px] text-slate-400">Sky Roof 6th Floor Kitchen</p>
+                <p className="text-[11px] text-stone-400">Sky Roof 6th Floor Kitchen</p>
               </div>
             </div>
 

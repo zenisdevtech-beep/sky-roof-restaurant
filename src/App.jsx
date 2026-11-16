@@ -70,11 +70,11 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#080D1A] text-slate-100 relative flex flex-col justify-between">
+      <div className="min-h-screen bg-[#0C0A09] text-stone-100 relative flex flex-col justify-between">
         
         {/* Toast Notification */}
         {toastMessage && (
-          <div className="fixed top-20 right-4 z-50 bg-amber-500 text-slate-950 px-4 py-2.5 rounded-xl font-bold text-xs shadow-2xl border border-amber-300 animate-in slide-in-from-top-2 duration-200 flex items-center gap-2">
+          <div className="fixed top-20 right-4 z-50 bg-gradient-to-r from-gold-500 to-amber-500 text-stone-950 px-4 py-2.5 rounded-xl font-bold text-xs shadow-2xl border border-gold-300 animate-in slide-in-from-top-2 duration-200 flex items-center gap-2">
             <span>✨</span>
             <span>{toastMessage}</span>
           </div>
@@ -162,7 +162,7 @@ export default function App() {
         <div className="sm:hidden fixed bottom-3 left-3 right-3 z-30 flex items-center gap-2">
           <a
             href={`tel:${RESTAURANT_INFO.rawPhone}`}
-            className="flex-1 py-3 px-3 rounded-xl bg-slate-900/95 border border-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 shadow-xl backdrop-blur-md"
+            className="flex-1 py-3 px-3 rounded-xl bg-stone-900/95 border border-stone-800 text-stone-200 text-xs font-bold flex items-center justify-center gap-1.5 shadow-xl backdrop-blur-md"
           >
             <Phone className="w-4 h-4 text-emerald-400" />
             <span>Call</span>
@@ -170,7 +170,7 @@ export default function App() {
 
           <button
             onClick={() => handleOpenReserve()}
-            className="flex-2 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xl shadow-amber-500/25 active:scale-95"
+            className="flex-2 py-3 px-4 rounded-xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-stone-950 text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xl shadow-gold-500/25 active:scale-95"
           >
             <Calendar className="w-4 h-4" />
             <span>Reserve Table</span>

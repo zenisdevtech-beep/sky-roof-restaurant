@@ -80,11 +80,11 @@ Please confirm table availability!`;
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-xl rounded-3xl bg-[#0C1222] border border-amber-500/30 shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-xl rounded-3xl bg-[#141210] border border-gold-500/30 shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200"
       >
 
         {/* Header Ribbon */}
-        <div className="bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 px-6 py-4 flex items-center justify-between text-slate-950">
+        <div className="bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 px-6 py-4 flex items-center justify-between text-stone-950">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5" />
             <h3 className="font-serif text-lg font-extrabold uppercase tracking-wide">
@@ -93,7 +93,7 @@ Please confirm table availability!`;
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-full hover:bg-black/10 transition text-slate-950"
+            className="p-1 rounded-full hover:bg-black/10 transition text-stone-950"
             aria-label="Close modal"
           >
             <X className="w-6 h-6" />
