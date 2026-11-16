@@ -36,3 +36,4 @@ export default function RooftopStars({ count = 28 }) {
     </div>
   );
 }
+
