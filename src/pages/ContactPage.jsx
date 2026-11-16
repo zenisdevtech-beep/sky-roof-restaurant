@@ -3,6 +3,7 @@ import {
   MapPin, Phone, Clock, Send, CheckCircle2, 
   ExternalLink, Navigation, Sparkles 
 } from 'lucide-react';
+import RooftopStars from '../components/RooftopStars';
 import { RESTAURANT_INFO } from '../data/restaurantData';
 
 export default function ContactPage() {
@@ -23,10 +24,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-4 pb-20 relative">
-      
+    <div className="pt-4 pb-20 relative overflow-hidden">
+      {/* 🌌 Animated Starlight Sky */}
+      <RooftopStars count={24} />
+
       {/* SINGLE UNIFIED HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10 relative z-10 animate-fade-in-up">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
             <MapPin className="w-4 h-4 text-amber-400" />
@@ -264,7 +267,7 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 active:scale-95 transition"
+                    className="btn-shimmer w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Inquiry to Restaurant</span>

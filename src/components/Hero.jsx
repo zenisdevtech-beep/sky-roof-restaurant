@@ -1,37 +1,42 @@
 import React from 'react';
 import { 
   Star, MapPin, Clock, Phone, Utensils, Calendar, 
-  Sparkles, Heart, Users, ShieldCheck, Flame, Crown
+  Sparkles, Heart, Users, ShieldCheck, Flame, Crown, ArrowRight
 } from 'lucide-react';
+import RooftopStars from './RooftopStars';
 import { RESTAURANT_INFO } from '../data/restaurantData';
 
 export default function Hero({ onOpenReserve, onExploreMenu }) {
   return (
     <section id="overview" className="relative pt-6 pb-20 md:pt-14 md:pb-28 overflow-hidden">
-      {/* Warm Ambient Twilight Glow */}
+      
+      {/* 🌌 Animated Rooftop Night Sky & Stars */}
+      <RooftopStars count={32} />
+
+      {/* Warm Ambient Twilight Glow with breathing aura */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-b from-amber-500/10 via-orange-500/5 to-transparent blur-[140px] rounded-full" />
-        <div className="absolute top-20 right-10 w-80 h-80 bg-gold-500/5 blur-[120px] rounded-full" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-700/5 blur-[120px] rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[480px] bg-gradient-to-b from-amber-500/15 via-orange-500/8 to-transparent blur-[140px] rounded-full animate-glow-breathe" />
+        <div className="absolute top-20 right-10 w-80 h-80 bg-amber-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-amber-700/8 blur-[120px] rounded-full" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
-        {/* Top Badges Strip */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/25 text-gold-400 text-xs font-semibold backdrop-blur-md">
-            <Crown className="w-3.5 h-3.5 text-gold-400" />
+        {/* Top Badges Strip with entrance animation */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-6 animate-fade-in-down">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/25 text-gold-400 text-xs font-semibold backdrop-blur-md hover:border-gold-500/40 transition-colors">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400 animate-spin-slow" />
             <span>Vadodara's Premier Rooftop Terrace & Banquet</span>
           </div>
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold backdrop-blur-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-radar-ping" />
             <span>{RESTAURANT_INFO.timings.busyNote}</span>
           </div>
         </div>
 
-        {/* Hero Title & Subtext */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
+        {/* Hero Title & Subtext with smooth fade-in-up */}
+        <div className="text-center max-w-4xl mx-auto mb-10 animate-fade-in-up">
           <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
             Dine Above The City Under <br className="hidden sm:inline" />
             <span className="gold-gradient-text italic font-serif">Starlit Vadodara Skies</span>
@@ -42,10 +47,10 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
             Panoramic open-air dining, romantic candle-light dinners, authentic North Indian & Chinese dishes, and private celebration banquets.
           </p>
 
-          {/* Social Proof Strip */}
+          {/* Social Proof Strip with subtle stagger */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-4 pb-2 border-y border-white/[0.08] text-xs sm:text-sm">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center bg-gold-500/15 text-gold-400 px-2.5 py-1 rounded-lg font-bold border border-gold-500/25">
+            <div className="flex items-center gap-2 group cursor-default">
+              <div className="flex items-center bg-gold-500/15 text-gold-400 px-2.5 py-1 rounded-lg font-bold border border-gold-500/25 group-hover:scale-105 transition-transform">
                 <Star className="w-4 h-4 fill-gold-400 text-gold-400 mr-1" />
                 <span>{RESTAURANT_INFO.rating}</span>
               </div>
@@ -73,11 +78,11 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
           </div>
         </div>
 
-        {/* Hero Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto mb-14">
+        {/* Hero Action Buttons with shimmer sweep */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto mb-14 animate-fade-in-up [animation-delay:200ms]">
           <button
             onClick={onOpenReserve}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 hover:from-gold-400 hover:to-amber-400 text-stone-950 font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl shadow-gold-500/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+            className="btn-shimmer w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-xl shadow-amber-500/25 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
           >
             <Calendar className="w-4 h-4 text-stone-950" />
             <span>Reserve Rooftop Table</span>
@@ -85,35 +90,35 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
 
           <button
             onClick={onExploreMenu}
-            className="w-full sm:w-auto px-7 py-4 rounded-xl bg-stone-900/90 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider border border-stone-800 flex items-center justify-center gap-2 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 backdrop-blur-md"
+            className="w-full sm:w-auto px-7 py-4 rounded-xl bg-stone-900/90 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider border border-stone-800 flex items-center justify-center gap-2 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 backdrop-blur-md shadow-md group"
           >
-            <Utensils className="w-4 h-4 text-gold-400" />
+            <Utensils className="w-4 h-4 text-gold-400 group-hover:rotate-12 transition-transform" />
             <span>View Full Menu</span>
           </button>
 
           <a
             href={`tel:${RESTAURANT_INFO.rawPhone}`}
-            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-stone-900/90 hover:bg-stone-800 text-stone-300 hover:text-white font-bold text-xs uppercase tracking-wider border border-stone-800 flex items-center justify-center gap-2 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-stone-900/90 hover:bg-stone-800 text-stone-300 hover:text-white font-bold text-xs uppercase tracking-wider border border-stone-800 flex items-center justify-center gap-2 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 shadow-md"
           >
             <Phone className="w-4 h-4 text-gold-400" />
             <span>081550 00501</span>
           </a>
         </div>
 
-        {/* Visual Showcase Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
+        {/* Visual Showcase Grid with hover lifts */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch animate-fade-in-up [animation-delay:350ms]">
           
           {/* Main Visual Card */}
           <div className="md:col-span-7 relative group rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl min-h-[320px] md:min-h-[420px] bg-stone-900">
             <img 
               src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" 
               alt="Sky Roof Restaurant Vadodara Open Air Dining" 
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent" />
             
             <div className="absolute bottom-6 left-6 right-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/90 text-stone-950 text-xs font-bold mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/90 text-stone-950 text-xs font-black mb-2 animate-float-gentle shadow-lg">
                 <Sparkles className="w-3.5 h-3.5" /> 6th Floor Open-Air Terrace
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
@@ -133,7 +138,7 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
               <img 
                 src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=800&q=80" 
                 alt="Romantic Candle Light Dinner at Sky Roof" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -153,15 +158,15 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
               <img 
                 src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80" 
                 alt="Paneer Tikka Masala Sky Roof Restaurant" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="p-1 rounded bg-gold-500/30 text-gold-300 text-[10px] font-bold border border-gold-500/40 uppercase">
+                  <span className="p-1 rounded bg-amber-500/30 text-amber-300 text-[10px] font-bold border border-amber-500/40 uppercase">
                     Chef's Specialty
                   </span>
-                  <span className="text-xs text-gold-300 font-semibold">Paneer Tikka Masala & Kebabs</span>
+                  <span className="text-xs text-amber-300 font-semibold">Paneer Tikka Masala & Kebabs</span>
                 </div>
                 <h3 className="font-serif text-lg font-bold text-white">Authentic North Indian Charcoal Flavors</h3>
                 <p className="text-[11px] text-stone-300 mt-0.5">Hara Bhara Kebab, Sizzlers, Veg Crispy & Cold Coffee.</p>
@@ -172,9 +177,9 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
 
         </div>
 
-        {/* Quick Highlights Row */}
+        {/* Quick Highlights Row with interactive hover cards */}
         <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3.5">
-          <div className="luxe-card p-4 rounded-2xl flex items-center gap-3">
+          <div className="luxe-card luxe-card-hover p-4 rounded-2xl flex items-center gap-3 cursor-default">
             <div className="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center shrink-0">
               <Utensils className="w-5 h-5 text-gold-400" />
             </div>
@@ -184,7 +189,7 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
             </div>
           </div>
 
-          <div className="luxe-card p-4 rounded-2xl flex items-center gap-3">
+          <div className="luxe-card luxe-card-hover p-4 rounded-2xl flex items-center gap-3 cursor-default">
             <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
               <Users className="w-5 h-5 text-purple-400" />
             </div>
@@ -194,7 +199,7 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
             </div>
           </div>
 
-          <div className="luxe-card p-4 rounded-2xl flex items-center gap-3">
+          <div className="luxe-card luxe-card-hover p-4 rounded-2xl flex items-center gap-3 cursor-default">
             <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0">
               <Heart className="w-5 h-5 text-rose-400" />
             </div>
@@ -204,7 +209,7 @@ export default function Hero({ onOpenReserve, onExploreMenu }) {
             </div>
           </div>
 
-          <div className="luxe-card p-4 rounded-2xl flex items-center gap-3">
+          <div className="luxe-card luxe-card-hover p-4 rounded-2xl flex items-center gap-3 cursor-default">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
               <Clock className="w-5 h-5 text-emerald-400" />
             </div>

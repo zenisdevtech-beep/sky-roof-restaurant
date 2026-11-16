@@ -1,13 +1,17 @@
 import React from 'react';
 import MenuSection from '../components/MenuSection';
 import { Sparkles, Utensils, ShieldCheck, Flame, ShoppingBag } from 'lucide-react';
+import RooftopStars from '../components/RooftopStars';
 import { RESTAURANT_INFO } from '../data/restaurantData';
 
 export default function MenuPage({ cart, onAddToCart, onUpdateQuantity, onOpenCart }) {
   return (
-    <div className="pt-6 pb-16">
+    <div className="pt-6 pb-16 relative overflow-hidden">
+      {/* 🌌 Animated Starlight Sky */}
+      <RooftopStars count={26} />
+
       {/* Page Header Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 relative z-10 animate-fade-in-up">
         <div className="text-center max-w-3xl mx-auto py-8">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
             <Utensils className="w-3.5 h-3.5 text-amber-400" />

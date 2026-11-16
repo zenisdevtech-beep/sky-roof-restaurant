@@ -57,17 +57,17 @@ export default function ReviewsPage() {
             </div>
 
             {/* Star Distribution Bars */}
-            <div className="md:col-span-4 space-y-2">
+            <div className="md:col-span-4 space-y-2.5">
               {REVIEWS_DATA.breakdown.map((row) => (
                 <div key={row.stars} className="flex items-center gap-3 text-xs">
-                  <span className="w-6 text-slate-400 font-bold">{row.stars} ★</span>
-                  <div className="flex-1 h-2 rounded-full bg-slate-800 overflow-hidden">
+                  <span className="w-6 text-stone-400 font-bold">{row.stars} ★</span>
+                  <div className="flex-1 h-2 rounded-full bg-stone-800/80 overflow-hidden p-0.5">
                     <div 
-                      className="h-full bg-amber-500 rounded-full" 
+                      className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full transition-all duration-1000 ease-out shadow-[0_0_8px_rgba(245,158,11,0.5)]" 
                       style={{ width: `${row.percentage}%` }}
                     />
                   </div>
-                  <span className="w-8 text-right text-slate-400 font-medium">{row.percentage}%</span>
+                  <span className="w-8 text-right text-stone-300 font-semibold">{row.percentage}%</span>
                 </div>
               ))}
             </div>
@@ -91,7 +91,7 @@ export default function ReviewsPage() {
           {REVIEWS_DATA.featuredReviews.map((rev) => (
             <div
               key={rev.id}
-              className="glass-panel p-6 rounded-2xl flex flex-col justify-between hover:border-amber-500/40 transition-all duration-300 group"
+              className="luxe-card luxe-card-hover p-6 rounded-3xl flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -100,22 +100,22 @@ export default function ReviewsPage() {
                       <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
                     ))}
                   </div>
-                  <span className="text-[11px] text-slate-400">{rev.date}</span>
+                  <span className="text-[11px] text-stone-400">{rev.date}</span>
                 </div>
 
-                <Quote className="w-6 h-6 text-amber-500/30 mb-2 group-hover:text-amber-500/60 transition" />
-                <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                <Quote className="w-6 h-6 text-amber-500/25 mb-2 group-hover:text-amber-500/50 transition-colors" />
+                <p className="text-xs text-stone-300 leading-relaxed mb-4">
                   "{rev.text}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+              <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
                 <div>
                   <h4 className="text-xs font-bold text-white">{rev.author}</h4>
-                  <span className="text-[10px] text-amber-400 font-medium">Google Local Guide</span>
+                  <span className="text-[10px] text-amber-400 font-semibold">Google Local Guide</span>
                 </div>
-                <div className="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">
-                  <ThumbsUp className="w-3 h-3" />
+                <div className="w-7 h-7 rounded-full bg-stone-900 border border-stone-800 flex items-center justify-center text-stone-400 group-hover:text-amber-400 transition-colors">
+                  <ThumbsUp className="w-3.5 h-3.5" />
                 </div>
               </div>
             </div>
@@ -128,20 +128,20 @@ export default function ReviewsPage() {
             href={RESTAURANT_INFO.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-wider border border-slate-700 flex items-center gap-2 transition"
+            className="px-6 py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider border border-stone-800 hover:border-stone-700 flex items-center gap-2 transition hover:-translate-y-0.5 shadow-md"
           >
             <MessageSquare className="w-4 h-4 text-amber-400" />
             <span>Read All 808 Reviews on Google</span>
-            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+            <ExternalLink className="w-3.5 h-3.5 text-stone-400" />
           </a>
 
           <a
             href={RESTAURANT_INFO.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/20 transition"
+            className="btn-shimmer px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-amber-500/25 hover:-translate-y-0.5 transition"
           >
-            <Star className="w-4 h-4 fill-slate-950 text-slate-950" />
+            <Star className="w-4 h-4 fill-stone-950 text-stone-950" />
             <span>Rate & Review Us</span>
           </a>
         </div>

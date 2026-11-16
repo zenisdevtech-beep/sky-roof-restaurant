@@ -4,6 +4,7 @@ import {
   PartyPopper, Utensils 
 } from 'lucide-react';
 import { InstagramIcon } from '../components/Icons';
+import RooftopStars from '../components/RooftopStars';
 import { GALLERY_IMAGES, RESTAURANT_INFO } from '../data/restaurantData';
 
 export default function GalleryPage() {
@@ -17,10 +18,12 @@ export default function GalleryPage() {
     : GALLERY_IMAGES.filter(img => img.category === activeTab);
 
   return (
-    <div className="pt-4 pb-20 relative">
+    <div className="pt-4 pb-20 relative overflow-hidden">
+      {/* 🌌 Animated Starlight Sky */}
+      <RooftopStars count={26} />
       
       {/* SINGLE UNIFIED HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8 relative z-10 animate-fade-in-up">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
             <Camera className="w-4 h-4 text-amber-400" />

@@ -3,6 +3,7 @@ import {
   Users, PartyPopper, Cake, Music, Sparkles, 
   CheckCircle2, Phone, Calendar, ArrowRight, ShieldCheck, Clock
 } from 'lucide-react';
+import RooftopStars from '../components/RooftopStars';
 import { RESTAURANT_INFO } from '../data/restaurantData';
 
 export default function BanquetPage({ onOpenReserve }) {
@@ -29,11 +30,14 @@ export default function BanquetPage({ onOpenReserve }) {
 
   return (
     <div className="pt-4 pb-20 relative overflow-hidden">
+      {/* 🌌 Animated Rooftop Night Sky & Stars */}
+      <RooftopStars count={24} />
+
       {/* Background Glow */}
-      <div className="absolute top-20 right-10 w-96 h-96 bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-20 right-10 w-96 h-96 bg-amber-500/10 blur-[130px] rounded-full pointer-events-none animate-glow-breathe" />
 
       {/* SINGLE UNIFIED HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 relative z-10 animate-fade-in-up">
         
         {/* Hero Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -160,7 +164,7 @@ export default function BanquetPage({ onOpenReserve }) {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={() => onOpenReserve({ eventType, guestCount, occasion: eventType })}
-                    className="flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 active:scale-95 transition"
+                    className="btn-shimmer flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                   >
                     <Calendar className="w-4 h-4" />
                     <span>Inquire Banquet Dates</span>

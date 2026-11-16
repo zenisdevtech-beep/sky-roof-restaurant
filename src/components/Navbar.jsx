@@ -183,7 +183,7 @@ export default function Navbar({ onOpenReserve, cartItemsCount, onOpenCart }) {
               {/* Reserve Table CTA (Prominently Visible & Non-Overflowing) */}
               <button
                 onClick={onOpenReserve}
-                className="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-lg shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap shrink-0"
+                className="btn-shimmer px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-lg shadow-amber-500/20 hover:scale-[1.03] active:scale-[0.98] transition-all whitespace-nowrap shrink-0"
               >
                 <Calendar className="w-3.5 h-3.5 text-stone-950 shrink-0" />
                 <span>Reserve Table</span>

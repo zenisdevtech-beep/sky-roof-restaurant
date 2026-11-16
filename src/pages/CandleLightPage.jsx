@@ -4,6 +4,7 @@ import {
   Heart, Sparkles, Star, Calendar, Music, 
   Wine, CheckCircle2, Phone, MessageSquare 
 } from 'lucide-react';
+import RooftopStars from '../components/RooftopStars';
 import { RESTAURANT_INFO } from '../data/restaurantData';
 
 export default function CandleLightPage({ onOpenReserve }) {
@@ -35,10 +36,12 @@ export default function CandleLightPage({ onOpenReserve }) {
   ];
 
   return (
-    <div className="pt-6 pb-20">
-      
+    <div className="pt-6 pb-20 relative overflow-hidden">
+      {/* 🌌 Animated Starlight Sky */}
+      <RooftopStars count={28} />
+
       {/* Hero Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10 animate-fade-in-up">
         <div className="text-center max-w-3xl mx-auto py-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-semibold uppercase tracking-wider mb-3">
             <Heart className="w-3.5 h-3.5 fill-rose-400 text-rose-400" />
@@ -54,7 +57,7 @@ export default function CandleLightPage({ onOpenReserve }) {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => onOpenReserve({ occasion: 'Candle Light Dinner' })}
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-rose-500/25 active:scale-95 transition"
+              className="btn-shimmer px-8 py-3.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-rose-500/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
             >
               <Calendar className="w-4 h-4 inline mr-2" />
               <span>Book Candle-Light Table (₹1,499)</span>
@@ -62,7 +65,7 @@ export default function CandleLightPage({ onOpenReserve }) {
 
             <a
               href={`tel:${RESTAURANT_INFO.rawPhone}`}
-              className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs uppercase tracking-wider transition"
+              className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs uppercase tracking-wider transition hover:-translate-y-0.5 shadow-md"
             >
               <Phone className="w-4 h-4 inline mr-2 text-rose-400" />
               <span>Call for Customization</span>
