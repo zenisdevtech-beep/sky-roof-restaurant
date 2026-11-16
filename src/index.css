@@ -14,7 +14,10 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3, .font-serif {
+  h1,
+  h2,
+  h3,
+  .font-serif {
     font-family: 'Playfair Display', Georgia, serif;
   }
 }
@@ -64,10 +67,13 @@
 
 /* Pulse indicator animation */
 @keyframes pulse-subtle {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.75;
     transform: scale(1.04);
@@ -77,4 +83,3 @@
 .animate-pulse-subtle {
   animation: pulse-subtle 3s infinite ease-in-out;
 }
-

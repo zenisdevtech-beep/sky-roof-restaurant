@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import MenuSection from './components/MenuSection';
-import CelebrationPackages from './components/CelebrationPackages';
-import BanquetSection from './components/BanquetSection';
-import ReviewsSection from './components/ReviewsSection';
-import GallerySection from './components/GallerySection';
-import LocationContact from './components/LocationContact';
 import Footer from './components/Footer';
 import ReservationModal from './components/ReservationModal';
 import FoodCartDrawer from './components/FoodCartDrawer';
+
+// Multi-Page Routes
+import HomePage from './pages/HomePage';
+import MenuPage from './pages/MenuPage';
+import CandleLightPage from './pages/CandleLightPage';
+import BanquetPage from './pages/BanquetPage';
+import GalleryPage from './pages/GalleryPage';
+import ReviewsPage from './pages/ReviewsPage';
+import ContactPage from './pages/ContactPage';
+
 import { Phone, MessageSquare, Calendar } from 'lucide-react';
 import { RESTAURANT_INFO } from './data/restaurantData';
 
@@ -34,7 +37,6 @@ export default function App() {
       }
     });
 
-    // Show temporary toast
     showToast(`Added "${item.name}" to your basket!`);
   };
 
@@ -64,123 +66,128 @@ export default function App() {
     setIsReserveOpen(true);
   };
 
-  const handleSelectPackage = (pkg) => {
-    handleOpenReserve({
-      title: pkg.title,
-      eventType: pkg.title,
-      occasion: pkg.title,
-      wantsDecor: true
-    });
-  };
-
-  const handleExploreMenu = () => {
-    const el = document.getElementById('menu');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-[#080D1A] text-slate-100 relative">
+    <BrowserRouter>
+      <div className="min-h-screen bg-[#080D1A] text-slate-100 relative flex flex-col justify-between">
+        
+        {/* Toast Notification */}
+        {toastMessage && (
+          <div className="fixed top-20 right-4 z-50 bg-amber-500 text-slate-950 px-4 py-2.5 rounded-xl font-bold text-xs shadow-2xl border border-amber-300 animate-in slide-in-from-top-2 duration-200 flex items-center gap-2">
+            <span>✨</span>
+            <span>{toastMessage}</span>
+          </div>
+        )}
 
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="fixed top-20 right-4 z-50 bg-amber-500 text-slate-950 px-4 py-2.5 rounded-xl font-bold text-xs shadow-2xl border border-amber-300 animate-in slide-in-from-top-2 duration-200 flex items-center gap-2">
-          <span>✨</span>
-          <span>{toastMessage}</span>
+        <div>
+          {/* Global Multi-Page Navigation Header */}
+          <Navbar
+            onOpenReserve={() => handleOpenReserve()}
+            cartItemsCount={totalCartCount}
+            onOpenCart={() => setIsCartOpen(true)}
+          />
+
+          {/* Page Routing */}
+          <main>
+            <Routes>
+              <Route 
+                path="/" 
+                element={
+                  <HomePage 
+                    onOpenReserve={handleOpenReserve}
+                    cart={cart}
+                    onAddToCart={handleAddToCart}
+                    onUpdateQuantity={handleUpdateQuantity}
+                  />
+                } 
+              />
+              <Route 
+                path="/menu" 
+                element={
+                  <MenuPage 
+                    cart={cart}
+                    onAddToCart={handleAddToCart}
+                    onUpdateQuantity={handleUpdateQuantity}
+                    onOpenCart={() => setIsCartOpen(true)}
+                  />
+                } 
+              />
+              <Route 
+                path="/candle-light" 
+                element={<CandleLightPage onOpenReserve={handleOpenReserve} />} 
+              />
+              <Route 
+                path="/banquet" 
+                element={<BanquetPage onOpenReserve={handleOpenReserve} />} 
+              />
+              <Route 
+                path="/gallery" 
+                element={<GalleryPage />} 
+              />
+              <Route 
+                path="/reviews" 
+                element={<ReviewsPage />} 
+              />
+              <Route 
+                path="/contact" 
+                element={<ContactPage />} 
+              />
+              {/* Fallback */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
         </div>
-      )}
 
-      {/* Main Navigation */}
-      <Navbar
-        onOpenReserve={() => handleOpenReserve()}
-        cartItemsCount={totalCartCount}
-        onOpenCart={() => setIsCartOpen(true)}
-      />
+        {/* Global Footer */}
+        <Footer onOpenReserve={() => handleOpenReserve()} />
 
-      {/* Hero Section */}
-      <Hero
-        onOpenReserve={() => handleOpenReserve()}
-        onExploreMenu={handleExploreMenu}
-      />
+        {/* Global Table Reservation Interactive Modal */}
+        <ReservationModal
+          isOpen={isReserveOpen}
+          onClose={() => setIsReserveOpen(false)}
+          initialData={reserveInitialData}
+        />
 
-      {/* Highlights & Features */}
-      <Features onOpenReserve={() => handleOpenReserve()} />
+        {/* Global Food Basket Slide-Over Drawer */}
+        <FoodCartDrawer
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          cart={cart}
+          onUpdateQuantity={handleUpdateQuantity}
+          onClearCart={handleClearCart}
+        />
 
-      {/* Menu & Cart Section */}
-      <MenuSection
-        cart={cart}
-        onAddToCart={handleAddToCart}
-        onUpdateQuantity={handleUpdateQuantity}
-        onOpenCart={() => setIsCartOpen(true)}
-      />
+        {/* Mobile Sticky Floating Action Bar */}
+        <div className="sm:hidden fixed bottom-3 left-3 right-3 z-30 flex items-center gap-2">
+          <a
+            href={`tel:${RESTAURANT_INFO.rawPhone}`}
+            className="flex-1 py-3 px-3 rounded-xl bg-slate-900/95 border border-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 shadow-xl backdrop-blur-md"
+          >
+            <Phone className="w-4 h-4 text-emerald-400" />
+            <span>Call</span>
+          </a>
 
-      {/* Celebration Packages (Candle Light & Birthdays) */}
-      <CelebrationPackages onSelectPackage={handleSelectPackage} />
+          <button
+            onClick={() => handleOpenReserve()}
+            className="flex-2 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xl shadow-amber-500/25 active:scale-95"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>Reserve Table</span>
+          </button>
 
-      {/* Banquet & Event Venue */}
-      <BanquetSection onOpenReserve={handleOpenReserve} />
+          <a
+            href={`https://wa.me/${RESTAURANT_INFO.whatsapp}?text=Hello%20Sky%20Roof%20Restaurant!%20I%20would%20like%20to%20reserve%20a%20table.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-xl bg-emerald-600 text-white shadow-xl flex items-center justify-center"
+            aria-label="WhatsApp Us"
+          >
+            <MessageSquare className="w-4 h-4" />
+          </a>
+        </div>
 
-      {/* Customer Reviews & Google Rating Breakdown */}
-      <ReviewsSection />
-
-      {/* Photo Gallery & Rooftop Views */}
-      <GallerySection />
-
-      {/* Location, Hours, Map & Contact Form */}
-      <LocationContact />
-
-      {/* Footer */}
-      <Footer onOpenReserve={() => handleOpenReserve()} />
-
-      {/* Table Reservation Interactive Modal */}
-      <ReservationModal
-        isOpen={isReserveOpen}
-        onClose={() => setIsReserveOpen(false)}
-        initialData={reserveInitialData}
-      />
-
-      {/* Food Cart Slide-over Drawer */}
-      <FoodCartDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        cart={cart}
-        onUpdateQuantity={handleUpdateQuantity}
-        onClearCart={handleClearCart}
-      />
-
-      {/* Mobile Floating Action Sticky Bar */}
-      <div className="sm:hidden fixed bottom-3 left-3 right-3 z-30 flex items-center gap-2">
-        <a
-          href={`tel:${RESTAURANT_INFO.rawPhone}`}
-          className="flex-1 py-3 px-3 rounded-xl bg-slate-900/95 border border-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center gap-1.5 shadow-xl backdrop-blur-md"
-        >
-          <Phone className="w-4 h-4 text-emerald-400" />
-          <span>Call Now</span>
-        </a>
-
-        <button
-          onClick={() => handleOpenReserve()}
-          className="flex-2 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xl shadow-amber-500/25 active:scale-95"
-        >
-          <Calendar className="w-4 h-4" />
-          <span>Reserve Table</span>
-        </button>
-
-        <a
-          href={`https://wa.me/${RESTAURANT_INFO.whatsapp}?text=Hello%20Sky%20Roof%20Restaurant!%20I%20would%20like%20to%20reserve%20a%20table.`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-xl bg-emerald-600 text-white shadow-xl flex items-center justify-center"
-          aria-label="WhatsApp Us"
-        >
-          <MessageSquare className="w-4 h-4" />
-        </a>
       </div>
-
-    </div>
+    </BrowserRouter>
   );
 }
-

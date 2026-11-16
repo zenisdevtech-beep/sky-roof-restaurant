@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Sparkles, Phone, MapPin, Clock, 
   Heart, Calendar, Utensils, Star, ExternalLink, ArrowUp
@@ -19,7 +20,7 @@ export default function Footer({ onOpenReserve }) {
           
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3 inline-block">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-bold shadow-lg">
                 <Sparkles className="w-5 h-5 text-slate-950" />
               </div>
@@ -30,9 +31,9 @@ export default function Footer({ onOpenReserve }) {
                 <span className="ml-2 text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
                   6th FLOOR
                 </span>
-                <p className="text-xs text-slate-400">Restaurant & Cafe • Banquet</p>
+                <p className="text-xs text-slate-400">Restaurant, Cafe & Banquet</p>
               </div>
-            </div>
+            </Link>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Vadodara's premier open-air rooftop dining destination. Known for romantic candle-light setups, sizzling North Indian & Indo-Chinese platters, and joyful birthday party banquets under the stars.
@@ -76,19 +77,19 @@ export default function Footer({ onOpenReserve }) {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Pages Multi-Page Links */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Explore
+              Explore Pages
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li><a href="#overview" className="hover:text-amber-400 transition">Overview</a></li>
-              <li><a href="#menu" className="hover:text-amber-400 transition">Rooftop Menu</a></li>
-              <li><a href="#packages" className="hover:text-amber-400 transition">Candle-Light Packages</a></li>
-              <li><a href="#banquet" className="hover:text-amber-400 transition">Banquet & Birthdays</a></li>
-              <li><a href="#reviews" className="hover:text-amber-400 transition">Guest Reviews (808+)</a></li>
-              <li><a href="#gallery" className="hover:text-amber-400 transition">Photo Gallery</a></li>
-              <li><a href="#location" className="hover:text-amber-400 transition">Directions & Map</a></li>
+              <li><Link to="/" className="hover:text-amber-400 transition">Home</Link></li>
+              <li><Link to="/menu" className="hover:text-amber-400 transition">Rooftop Menu</Link></li>
+              <li><Link to="/candle-light" className="hover:text-amber-400 transition">Candle Light Packages</Link></li>
+              <li><Link to="/banquet" className="hover:text-amber-400 transition">Banquet & Birthdays</Link></li>
+              <li><Link to="/gallery" className="hover:text-amber-400 transition">Photo Gallery</Link></li>
+              <li><Link to="/reviews" className="hover:text-amber-400 transition">Guest Reviews (808+)</Link></li>
+              <li><Link to="/contact" className="hover:text-amber-400 transition">Directions & Map</Link></li>
             </ul>
           </div>
 
@@ -101,7 +102,7 @@ export default function Footer({ onOpenReserve }) {
               <li>• Paneer Tikka Masala</li>
               <li>• Veg Hara Bhara Kebab</li>
               <li>• Signature Cold Coffee with Ice Cream</li>
-              <li>• Sizzling Brownie with Venila Icecream</li>
+              <li>• Sizzling Brownie with Vanilla Ice cream</li>
               <li>• Crispy Veg Delight & Chinese</li>
               <li>• Dal Makhani & Garlic Butter Naan</li>
               <li>• All-You-Can-Eat Buffet Specials</li>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  X, Calendar, Clock, Users, Heart, Sparkles, 
+import {
+  X, Calendar, Clock, Users, Heart, Sparkles,
   CheckCircle2, Phone, PartyPopper, MessageSquare, Download, Share2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -78,11 +78,11 @@ Please confirm table availability!`;
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div 
+      <div
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-xl rounded-3xl bg-[#0C1222] border border-amber-500/30 shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200"
       >
-        
+
         {/* Header Ribbon */}
         <div className="bg-gradient-to-r from-amber-500 via-amber-450 to-amber-600 px-6 py-4 flex items-center justify-between text-slate-950">
           <div className="flex items-center gap-2">
@@ -102,7 +102,7 @@ Please confirm table availability!`;
 
         {step === 1 ? (
           <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5">
-            
+
             {/* Occasion & Experience */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
@@ -121,11 +121,10 @@ Please confirm table availability!`;
                     type="button"
                     key={occ}
                     onClick={() => setReservation({ ...reservation, occasion: occ })}
-                    className={`p-2.5 rounded-xl border text-center font-semibold transition ${
-                      reservation.occasion === occ
+                    className={`p-2.5 rounded-xl border text-center font-semibold transition ${reservation.occasion === occ
                         ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-sm'
                         : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'
-                    }`}
+                      }`}
                   >
                     {occ}
                   </button>

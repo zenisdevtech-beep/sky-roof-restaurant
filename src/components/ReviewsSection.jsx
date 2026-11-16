@@ -1,6 +1,6 @@
 import React from 'react';
-import { 
-  Star, Quote, CheckCircle, ExternalLink, MessageSquare, 
+import {
+  Star, Quote, CheckCircle, ExternalLink, MessageSquare,
   Sparkles, ThumbsUp, MapPin
 } from 'lucide-react';
 import { REVIEWS_DATA, RESTAURANT_INFO } from '../data/restaurantData';
@@ -9,7 +9,7 @@ export default function ReviewsSection() {
   return (
     <section id="reviews" className="py-16 md:py-24 bg-[#0A1020]/70 relative border-t border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -27,7 +27,7 @@ export default function ReviewsSection() {
         {/* Google Ratings Summary Box */}
         <div className="glass-panel p-6 sm:p-10 rounded-3xl mb-12 border border-white/10 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            
+
             {/* Score Big Display */}
             <div className="md:col-span-4 text-center md:text-left md:border-r border-white/10 md:pr-8">
               <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
@@ -58,8 +58,8 @@ export default function ReviewsSection() {
                 <div key={row.stars} className="flex items-center gap-3 text-xs">
                   <span className="w-6 text-slate-400 font-bold">{row.stars} ★</span>
                   <div className="flex-1 h-2 rounded-full bg-slate-800 overflow-hidden">
-                    <div 
-                      className="h-full bg-amber-500 rounded-full" 
+                    <div
+                      className="h-full bg-amber-500 rounded-full"
                       style={{ width: `${row.percentage}%` }}
                     />
                   </div>

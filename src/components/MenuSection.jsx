@@ -95,8 +95,8 @@ export default function MenuSection({ cart, onAddToCart, onUpdateQuantity, onOpe
               <button
                 onClick={() => setFilterJainOnly(!filterJainOnly)}
                 className={`flex-1 sm:flex-none px-3.5 py-3 rounded-xl text-xs font-semibold border flex items-center justify-center gap-1.5 transition-all ${filterJainOnly
-                    ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50 shadow-sm'
-                    : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200'
+                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50 shadow-sm'
+                  : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200'
                   }`}
               >
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
@@ -106,8 +106,8 @@ export default function MenuSection({ cart, onAddToCart, onUpdateQuantity, onOpe
               <button
                 onClick={() => setFilterChefSpecialOnly(!filterChefSpecialOnly)}
                 className={`flex-1 sm:flex-none px-3.5 py-3 rounded-xl text-xs font-semibold border flex items-center justify-center gap-1.5 transition-all ${filterChefSpecialOnly
-                    ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm'
-                    : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200'
+                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm'
+                  : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200'
                   }`}
               >
                 <Flame className="w-4 h-4 text-amber-400" />
@@ -123,8 +123,8 @@ export default function MenuSection({ cart, onAddToCart, onUpdateQuantity, onOpe
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 ${activeCategory === cat.id
-                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold shadow-lg shadow-amber-500/20'
-                    : 'bg-slate-900/70 text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-800'
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold shadow-lg shadow-amber-500/20'
+                  : 'bg-slate-900/70 text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-800'
                   }`}
               >
                 <span>{cat.name}</span>

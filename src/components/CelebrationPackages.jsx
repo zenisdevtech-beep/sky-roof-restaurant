@@ -45,15 +45,15 @@ export default function CelebrationPackages({ onSelectPackage }) {
               <div
                 key={pkg.id}
                 className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative group ${isRomantic
-                    ? 'bg-gradient-to-b from-rose-950/30 via-slate-900/90 to-slate-900 border-2 border-rose-500/40 shadow-2xl shadow-rose-950/40 md:-translate-y-2'
-                    : 'glass-panel hover:border-amber-500/40'
+                  ? 'bg-gradient-to-b from-rose-950/30 via-slate-900/90 to-slate-900 border-2 border-rose-500/40 shadow-2xl shadow-rose-950/40 md:-translate-y-2'
+                  : 'glass-panel hover:border-amber-500/40'
                   }`}
               >
                 {/* Popular Badge */}
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                   <span className={`px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider shadow-lg ${isRomantic
-                      ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white'
-                      : 'bg-amber-500 text-slate-950'
+                    ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white'
+                    : 'bg-amber-500 text-slate-950'
                     }`}>
                     {pkg.badge}
                   </span>
@@ -99,8 +99,8 @@ export default function CelebrationPackages({ onSelectPackage }) {
                 <button
                   onClick={() => onSelectPackage(pkg)}
                   className={`w-full py-3.5 rounded-xl text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 shadow-md ${isRomantic
-                      ? 'bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white shadow-rose-500/25'
-                      : 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
+                    ? 'bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white shadow-rose-500/25'
+                    : 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-amber-500/20'
                     }`}
                 >
                   <Calendar className="w-4 h-4" />

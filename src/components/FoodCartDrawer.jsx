@@ -107,8 +107,8 @@ Please confirm receipt of order!`;
                         key={type}
                         onClick={() => setOrderType(type)}
                         className={`p-2.5 rounded-xl border text-center font-semibold transition ${orderType === type
-                            ? 'bg-amber-500/20 border-amber-500 text-amber-300'
-                            : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'
+                          ? 'bg-amber-500/20 border-amber-500 text-amber-300'
+                          : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'
                           }`}
                       >
                         {type}
